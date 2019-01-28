@@ -15,7 +15,7 @@ Feature: As a user I want to be able to sign in on automationpractice page
     And I fill password field in Alredy Registered box with "qa.patronage"
     And I click Sign In button in Alredy Registered box
     Then I am not logged in
-    Then I see information about inproper email address or password
+    Then Error message is displayed
 
   Scenario: Login is not case sensitive
     Given I am on automationpractice page
@@ -32,4 +32,4 @@ Feature: As a user I want to be able to sign in on automationpractice page
     And I fill password field in Alredy Registered box with "QA.Patronage2019"
     And I click Sign In button in Alredy Registered box
     Then I am not logged in
-    Then I see information about inproper email address or password
+    Then Error message is displayed

@@ -48,8 +48,14 @@ public class AutomationPracticeSteps extends DriverFactory {
     public void iAmNotLoggedIn() {
         assertThat( "user is not logged in", automationPracticeMainPage.isSignInButtonVisible() == true);
     }
-    @Then("^I see information about inproper email address or password")
-    public void iSeeInformationAboutInproperEmailAddressOrPassword() {
-        assertThat("user is not logged in", automationPracticeSignInPage.isInformationAboutNotLoggedInVisible() == true);
+    @Then("^Error message is displayed")
+    public void errormessageIsDisplayed() {
+        assertThat("Error message is not displayed", automationPracticeMainPage.isErrorVisible() == true);
+    }
+
+    @When("^I type \"([^\"]*)\" into \"Enter your email\" and confiirm by Enter")
+    public void iTypeEmailAddressIntoNewsletterField(String emailAddress) {
+        automationPracticeMainPage.enterEmailIntoNewsletter(emailAddress);
+
     }
 }

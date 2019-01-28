@@ -1,5 +1,6 @@
 package com.Intive.Patronage.tests.pages;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -15,6 +16,12 @@ public class AutomationPracticeMainPage {
 
     @FindBy(how = How.CLASS_NAME, using = "logout")
     private WebElement logoutButton;
+
+    @FindBy(how = How.ID, using = "newsletter-input")
+    private WebElement newsletterInput;
+
+    @FindBy(how = How.CLASS_NAME, using = "alert-danger")
+    private WebElement informationAboutError;
 
     public AutomationPracticeMainPage(final WebDriver driver) {
         this.driver = driver;
@@ -34,6 +41,14 @@ public class AutomationPracticeMainPage {
     }
     public boolean isSignInButtonVisible() {
         return signInInNavigationBar.isDisplayed();
+    }
+
+    public void enterEmailIntoNewsletter(String emailAddress) {
+        newsletterInput.sendKeys(emailAddress);
+        newsletterInput.sendKeys(Keys.ENTER);
+    }
+    public boolean isErrorVisible() {
+        return informationAboutError.isDisplayed();
     }
 
 }

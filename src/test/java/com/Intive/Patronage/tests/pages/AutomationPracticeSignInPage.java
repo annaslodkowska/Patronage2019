@@ -18,9 +18,6 @@ public class AutomationPracticeSignInPage {
     @FindBy(how = How.ID, using = "SubmitLogin")
     private WebElement signInButton;
 
-    @FindBy(how = How.CSS, using = "div.alert.alert-danger")
-    private WebElement informationAboutNotLoggedIn;
-
     public AutomationPracticeSignInPage(final WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -38,7 +35,5 @@ public class AutomationPracticeSignInPage {
         signInButton.click();
     }
 
-    public boolean isInformationAboutNotLoggedInVisible() {
-        return informationAboutNotLoggedIn.isDisplayed();
-    }
+
 }
