@@ -23,6 +23,9 @@ public class AutomationPracticeMainPage {
     @FindBy(how = How.CLASS_NAME, using = "alert-danger")
     private WebElement informationAboutError;
 
+    @FindBy(how = How.NAME, using = "submitNewsletter")
+    private WebElement submitNewsletterButton;
+
     public AutomationPracticeMainPage(final WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -43,12 +46,17 @@ public class AutomationPracticeMainPage {
         return signInInNavigationBar.isDisplayed();
     }
 
-    public void enterEmailIntoNewsletter(String emailAddress) {
+    public void enterEmailIntoNewsletter(String emailAddress, boolean pressEnter) {
         newsletterInput.sendKeys(emailAddress);
-        newsletterInput.sendKeys(Keys.ENTER);
+        if (pressEnter == true) {
+            newsletterInput.sendKeys(Keys.ENTER);
+        }
     }
     public boolean isErrorVisible() {
         return informationAboutError.isDisplayed();
+    }
+    public void clickSubmitNewsletter(){
+        submitNewsletterButton.click();
     }
 
 }

@@ -53,9 +53,16 @@ public class AutomationPracticeSteps extends DriverFactory {
         assertThat("Error message is not displayed", automationPracticeMainPage.isErrorVisible() == true);
     }
 
-    @When("^I type \"([^\"]*)\" into \"Enter your email\" and confiirm by Enter")
+    @When("^I type \"([^\"]*)\" into \"Enter your email\" and confirm by Enter$")
+    public void iTypeEmailAddressIntoNewsletterFieldAndPressEnter(String emailAddress) {
+        automationPracticeMainPage.enterEmailIntoNewsletter(emailAddress, true);
+    }
+    @When("^I type \"([^\"]*)\" into \"Enter your email\"$")
     public void iTypeEmailAddressIntoNewsletterField(String emailAddress) {
-        automationPracticeMainPage.enterEmailIntoNewsletter(emailAddress);
-
+        automationPracticeMainPage.enterEmailIntoNewsletter(emailAddress, false);
+    }
+    @Then("^I click next button in \"Enter your email\" section")
+    public void iClickNextButtonInEnterYourEmailSection() {
+        automationPracticeMainPage.clickSubmitNewsletter();
     }
 }
