@@ -26,6 +26,12 @@ public class Hooks extends DriverFactory {
     @After
     public void afterScenario(Scenario scenario) throws IOException {
         String status = (scenario.isFailed() ? "FAILED" : "SUCCESS");
+        /* if scenario.isFailed() == true {
+        String status = "FAILED";
+        }
+        else String status = "SUCCESS";
+        *
+        * */
         logger.debug("=======================================SCENARIO FINISHED WITH " + status + " STATUS");
         if (scenario.isFailed() && driver != null) {
 
