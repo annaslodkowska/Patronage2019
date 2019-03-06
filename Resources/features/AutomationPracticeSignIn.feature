@@ -3,9 +3,9 @@ Feature: As a user I want to be able to sign in on automationpractice page
   Scenario Outline: User signs in with proper data: <test name>
     Given I am on automationpractice page
     When I click on Sign In button in navigation bar
-    And I fill email address field in Alredy Registered box with "<email>"
-    And I fill password field in Alredy Registered box with "<password>"
-    And I click Sign In button in Alredy Registered box
+    And I fill email address field in Already Registered box with "<email>"
+    And I fill password field in Already Registered box with "<password>"
+    And I click Sign In button in Already Registered box
     Then I am logged in
 
     Examples: Variations of proper login data
@@ -16,9 +16,9 @@ Feature: As a user I want to be able to sign in on automationpractice page
   Scenario Outline: User signs in with invalid data: <test name>
     Given I am on automationpractice page
     When I click on Sign In button in navigation bar
-    And I fill email address field in Alredy Registered box with "<email>"
-    And I fill password field in Alredy Registered box with "<password>"
-    And I click Sign In button in Alredy Registered box
+    And I fill email address field in Already Registered box with "<email>"
+    And I fill password field in Already Registered box with "<password>"
+    And I click Sign In button in Already Registered box
     Then I am not logged in
     Then Error message is displayed
 

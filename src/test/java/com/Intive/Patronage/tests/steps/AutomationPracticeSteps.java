@@ -24,17 +24,17 @@ public class AutomationPracticeSteps extends DriverFactory {
         automationPracticeMainPage.clickSignInInNavigationBar();
     }
 
-    @And("^I fill email address field in Alredy Registered box with \"([^\"]*)\"$")
+    @And("^I fill email address field in Already Registered box with \"([^\"]*)\"$")
     public void iFillEmailAddressFieldInAlreadyegisteredBoxWith(String login) {
         automationPracticeSignInPage.typeInEmailField(login);
     }
 
-    @And("^I fill password field in Alredy Registered box with \"([^\"]*)\"$")
+    @And("^I fill password field in Already Registered box with \"([^\"]*)\"$")
     public void iFillPasswordFieldInAlreadyegisteredBoxWith(String password) {
         automationPracticeSignInPage.typePasswordField(password);
     }
 
-    @And("^I click Sign In button in Alredy Registered box")
+    @And("^I click Sign In button in Already Registered box")
     public void iClickSignInButtonInAlreadyRegisteredBox() {
         automationPracticeSignInPage.clickSignInButtonInAlreadyRegisteredBox();
     }
