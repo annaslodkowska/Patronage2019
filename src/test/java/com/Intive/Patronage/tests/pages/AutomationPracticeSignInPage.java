@@ -4,10 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-import org.openqa.selenium.support.PageFactory;
 
-public class AutomationPracticeSignInPage {
-    private WebDriver driver;
+public class AutomationPracticeSignInPage extends BasePage {
 
     @FindBy(how = How.ID, using = "email")
     private WebElement emailField;
@@ -19,8 +17,7 @@ public class AutomationPracticeSignInPage {
     private WebElement signInButton;
 
     public AutomationPracticeSignInPage(final WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
+       super(driver);
     }
 
     public void typeInEmailField(String loginEmail) {
