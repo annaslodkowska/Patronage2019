@@ -1,5 +1,6 @@
 package com.Intive.Patronage.tests.steps;
 import com.Intive.Patronage.tests.pages.AutomationPracticeMainPage;
+import com.Intive.Patronage.tests.pages.AutomationPracticeProductPage;
 import com.Intive.Patronage.tests.pages.AutomationPracticeSignInPage;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -12,6 +13,7 @@ public class AutomationPracticeSteps extends DriverFactory {
 
     AutomationPracticeMainPage automationPracticeMainPage = new AutomationPracticeMainPage(driver);
     AutomationPracticeSignInPage automationPracticeSignInPage = new AutomationPracticeSignInPage(driver);
+    AutomationPracticeProductPage automationPracticeProductPage = new AutomationPracticeProductPage(driver);
 
 
     @Given("^I am on automationpractice page")
@@ -64,5 +66,20 @@ public class AutomationPracticeSteps extends DriverFactory {
     @Then("^I click next button in \"Enter your email\" section")
     public void iClickNextButtonInEnterYourEmailSection() {
         automationPracticeMainPage.clickSubmitNewsletter();
+    }
+    // When I click on "Dresses" on top menu//
+    @When("^I click on \"Dresses\" on top menu")
+    public void iClickDressesOnTopMenu() {
+        automationPracticeMainPage.clickDressesOnTopMenu();
+    }
+    // I choose "<sort method>" in "Sort by" drop-down box//
+    @When("^I choose \"([^\"]*)\" in \"Sort by\" drop-down box")
+    public void iChooseByTextInSortByDropDownBox(String textToSelect) {
+        automationPracticeProductPage.chooseValueInSortBy(textToSelect);
+    }
+    // Loader is displayed //
+    @Then("^Loader is displayed")
+    public void loaderIsDisplayed() {
+        assertThat("loader should be displayed", automationPracticeMainPage.isLoaderDisplayed() == true);
     }
 }
