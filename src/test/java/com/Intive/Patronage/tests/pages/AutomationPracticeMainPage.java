@@ -24,6 +24,13 @@ public class AutomationPracticeMainPage extends BasePage {
     @FindBy(how = How.NAME, using = "submitNewsletter")
     private WebElement submitNewsletterButton;
 
+   // @FindBy(how = How.XPATH, using = "//a[@title='Dresses']")
+    @FindBy(how = How.XPATH, using = "/html/body/div/div[1]/header/div[3]/div/div/div[6]/ul/li[2]/a")
+    private WebElement dressesOnTopMenu;
+
+    @FindBy(how = How.XPATH, using = "/html/body/div/div[2]/div/div[3]/div[2]/ul/p/img")
+    private WebElement loaderGif;
+
     public AutomationPracticeMainPage(final WebDriver driver) {
         super(driver);
     }
@@ -55,5 +62,10 @@ public class AutomationPracticeMainPage extends BasePage {
     public void clickSubmitNewsletter(){
         submitNewsletterButton.click();
     }
-
+    public  void clickDressesOnTopMenu() {
+        dressesOnTopMenu.click();
+    }
+    public boolean isLoaderDisplayed(){
+        return loaderGif.isDisplayed();
+    }
 }
